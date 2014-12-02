@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VPNConnector.h"
 
 @interface ViewController : UIViewController
 

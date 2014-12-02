@@ -14,6 +14,8 @@
 		A7ACF3FA1A1B6DEC000CEE39 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7ACF3F91A1B6DEC000CEE39 /* Images.xcassets */; };
 		A7ACF3FD1A1B6DEC000CEE39 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7ACF3FB1A1B6DEC000CEE39 /* LaunchScreen.xib */; };
 		A7ACF4091A1B6DEC000CEE39 /* VPNToolTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A7ACF4081A1B6DEC000CEE39 /* VPNToolTests.m */; };
+		A7FF1D321A1B7A2600904BA4 /* VPNConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FF1D311A1B7A2600904BA4 /* VPNConnector.m */; };
+		A7FF1D341A1B802C00904BA4 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7FF1D331A1B802C00904BA4 /* NetworkExtension.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		A7ACF4021A1B6DEC000CEE39 /* VPNToolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VPNToolTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7ACF4071A1B6DEC000CEE39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7ACF4081A1B6DEC000CEE39 /* VPNToolTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VPNToolTests.m; sourceTree = "<group>"; };
+		A7FF1D301A1B7A2600904BA4 /* VPNConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPNConnector.h; sourceTree = "<group>"; };
+		A7FF1D311A1B7A2600904BA4 /* VPNConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPNConnector.m; sourceTree = "<group>"; };
+		A7FF1D331A1B802C00904BA4 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
+		A7FF1D351A1CE27200904BA4 /* VPNTool.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = VPNTool.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7FF1D341A1B802C00904BA4 /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +70,7 @@
 		A7ACF3E01A1B6DEC000CEE39 = {
 			isa = PBXGroup;
 			children = (
+				A7FF1D331A1B802C00904BA4 /* NetworkExtension.framework */,
 				A7ACF3EB1A1B6DEC000CEE39 /* VPNTool */,
 				A7ACF4051A1B6DEC000CEE39 /* VPNToolTests */,
 				A7ACF3EA1A1B6DEC000CEE39 /* Products */,
@@ -81,11 +89,14 @@
 		A7ACF3EB1A1B6DEC000CEE39 /* VPNTool */ = {
 			isa = PBXGroup;
 			children = (
+				A7FF1D351A1CE27200904BA4 /* VPNTool.entitlements */,
+				A7ACF3F61A1B6DEC000CEE39 /* Main.storyboard */,
 				A7ACF3F01A1B6DEC000CEE39 /* AppDelegate.h */,
 				A7ACF3F11A1B6DEC000CEE39 /* AppDelegate.m */,
 				A7ACF3F31A1B6DEC000CEE39 /* ViewController.h */,
 				A7ACF3F41A1B6DEC000CEE39 /* ViewController.m */,
-				A7ACF3F61A1B6DEC000CEE39 /* Main.storyboard */,
+				A7FF1D301A1B7A2600904BA4 /* VPNConnector.h */,
+				A7FF1D311A1B7A2600904BA4 /* VPNConnector.m */,
 				A7ACF3F91A1B6DEC000CEE39 /* Images.xcassets */,
 				A7ACF3FB1A1B6DEC000CEE39 /* LaunchScreen.xib */,
 				A7ACF3EC1A1B6DEC000CEE39 /* Supporting Files */,
@@ -168,6 +179,7 @@
 				TargetAttributes = {
 					A7ACF3E81A1B6DEC000CEE39 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = JBUC7L3435;
 					};
 					A7ACF4011A1B6DEC000CEE39 = {
 						CreatedOnToolsVersion = 6.1;
@@ -219,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7FF1D321A1B7A2600904BA4 /* VPNConnector.m in Sources */,
 				A7ACF3F51A1B6DEC000CEE39 /* ViewController.m in Sources */,
 				A7ACF3F21A1B6DEC000CEE39 /* AppDelegate.m in Sources */,
 				A7ACF3EF1A1B6DEC000CEE39 /* main.m in Sources */,
@@ -343,9 +356,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = VPNTool/VPNTool.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Valentin Cherepyanko (JK76PU54CY)";
 				INFOPLIST_FILE = VPNTool/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "93e8b8d6-fbe5-4950-b4bc-90f3161ec31c";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -353,9 +370,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = VPNTool/VPNTool.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Valentin Cherepyanko (JK76PU54CY)";
 				INFOPLIST_FILE = VPNTool/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "93e8b8d6-fbe5-4950-b4bc-90f3161ec31c";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -412,6 +433,7 @@
 				A7ACF40E1A1B6DEC000CEE39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A7ACF40F1A1B6DEC000CEE39 /* Build configuration list for PBXNativeTarget "VPNToolTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +442,7 @@
 				A7ACF4111A1B6DEC000CEE39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

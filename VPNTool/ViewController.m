@@ -16,12 +16,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[VPNConnector instance] loadConfig];
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)connectButtonTapped:(id)sender {
+    [[VPNConnector instance] connect];
 }
 
 @end
